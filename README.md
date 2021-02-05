@@ -1,2 +1,3 @@
-# yolobit_homebit_v2
-Extension blocks for Home:Bit kit using with Yolo:Bit
+# yolobit_touchpad
+Yolo:Bit extension for 12-key MPR121 touch pad
+# blocky_homebit

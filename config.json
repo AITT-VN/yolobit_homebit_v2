@@ -1,0 +1,16 @@
+{
+    "name": "HOME:BIT V2",
+    "description": "Mục mở rộng dành cho bộ kit nhà thông minh Home:Bit",
+    "libs": [
+        "keypad121.py","hcsr04.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    },
+    "poster": "homebit.png"
+}
