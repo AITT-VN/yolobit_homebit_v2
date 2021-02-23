@@ -220,8 +220,13 @@ Blockly.Blocks["block_dht_create"] = {
   init: function() {
     this.jsonInit({
       type: "block_dht_create",
-      message0: "khởi tạo cảm biến nhiệt độ và độ ẩm %1",
+      message0: "khởi tạo cảm biến %1 %2 ",
       args0: [
+        {
+          type: "field_variable",
+          name: "dht_sensor",
+          variable: "nhiệt độ và độ ẩm"
+        },
         {
           type: "field_dropdown",
           name: "port",
@@ -260,8 +265,13 @@ Blockly.Blocks["block_dht_create"] = {
 Blockly.Blocks["block_dht_measure"] = {
   init: function() {
     this.jsonInit({
-      message0: "cập nhật cảm biến nhiệt độ & độ ẩm",
+      message0: "cập nhật cảm biến %1",
       args0: [
+      {
+        type: "field_variable",
+        name: "dht_sensor",
+        variable: "nhiệt độ và độ ẩm"
+      }
       ],
       previousStatement: null,
       nextStatement: null,
@@ -275,7 +285,7 @@ Blockly.Blocks["block_dht_measure"] = {
 Blockly.Blocks["block_dht_read"] = {
   init: function() {
     this.jsonInit({
-      message0: "đọc %1 từ cảm biến",
+      message0: "đọc %1 từ cảm biến %2 ",
       args0: [
         {
           type: "field_dropdown",
@@ -284,6 +294,11 @@ Blockly.Blocks["block_dht_read"] = {
             ["nhiệt độ", "TEMP"],
             ["độ ẩm", "HUMID"]
           ]
+        },
+        {
+          type: "field_variable",
+          name: "dht_sensor",
+          variable: "nhiệt độ và độ ẩm"
         }
       ],
       output: null,
@@ -296,29 +311,32 @@ Blockly.Blocks["block_dht_read"] = {
 
 
 Blockly.Python["block_dht_create"] = function(block) {
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   var dropdown_port = block.getFieldValue("port");
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_["import_yolobit"] = "from yolobit import *";
   Blockly.Python.definitions_["import_time"] = "import time";
   Blockly.Python.definitions_["import_dht"] = "import dht";
-  var code =  "dht_sensor = dht.DHT11" + "(Pin(" + dropdown_port + ".pin))\n";
+  var code =  variable_dht + " = dht.DHT11" + "(Pin(" + dropdown_port + ".pin))\n";
   return code;
 };
 
 Blockly.Python["block_dht_measure"] = function(block) {
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble Python into code variable.
-  var code = "dht_sensor.measure()\n";
+  var code = variable_dht + ".measure()\n";
   return code;
 };
 
 Blockly.Python["block_dht_read"] = function(block) {
   var dropdown_data = block.getFieldValue("DATA");
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble Python into code variable.
   var code = "";
   if (dropdown_data == "TEMP")
-    code = "dht_sensor.temperature()";
+    code = variable_dht + ".temperature()";
   else 
-    code = "dht_sensor.humidity()";
+    code = variable_dht + ".humidity()";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
