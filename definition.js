@@ -220,8 +220,13 @@ Blockly.Blocks["block_dht_create"] = {
   init: function() {
     this.jsonInit({
       type: "block_dht_create",
-      message0: "khởi tạo cảm biến nhiệt độ và độ ẩm %1",
+      message0: "khởi tạo cảm biến %1 %2 ",
       args0: [
+        {
+          type: "field_variable",
+          name: "dht_sensor",
+          variable: "nhiệt độ và độ ẩm"
+        },
         {
           type: "field_dropdown",
           name: "port",
@@ -260,8 +265,13 @@ Blockly.Blocks["block_dht_create"] = {
 Blockly.Blocks["block_dht_measure"] = {
   init: function() {
     this.jsonInit({
-      message0: "cập nhật cảm biến nhiệt độ & độ ẩm",
+      message0: "cập nhật cảm biến %1",
       args0: [
+      {
+        type: "field_variable",
+        name: "dht_sensor",
+        variable: "nhiệt độ và độ ẩm"
+      }
       ],
       previousStatement: null,
       nextStatement: null,
@@ -275,7 +285,7 @@ Blockly.Blocks["block_dht_measure"] = {
 Blockly.Blocks["block_dht_read"] = {
   init: function() {
     this.jsonInit({
-      message0: "đọc %1 từ cảm biến",
+      message0: "đọc %1 từ cảm biến %2 ",
       args0: [
         {
           type: "field_dropdown",
@@ -284,6 +294,11 @@ Blockly.Blocks["block_dht_read"] = {
             ["nhiệt độ", "TEMP"],
             ["độ ẩm", "HUMID"]
           ]
+        },
+        {
+          type: "field_variable",
+          name: "dht_sensor",
+          variable: "nhiệt độ và độ ẩm"
         }
       ],
       output: null,
@@ -296,29 +311,32 @@ Blockly.Blocks["block_dht_read"] = {
 
 
 Blockly.Python["block_dht_create"] = function(block) {
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   var dropdown_port = block.getFieldValue("port");
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_["import_yolobit"] = "from yolobit import *";
   Blockly.Python.definitions_["import_time"] = "import time";
   Blockly.Python.definitions_["import_dht"] = "import dht";
-  var code =  "dht_sensor = dht.DHT11" + "(Pin(" + dropdown_port + ".pin))\n";
+  var code =  variable_dht + " = dht.DHT11" + "(Pin(" + dropdown_port + ".pin))\n";
   return code;
 };
 
 Blockly.Python["block_dht_measure"] = function(block) {
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble Python into code variable.
-  var code = "dht_sensor.measure()\n";
+  var code = variable_dht + ".measure()\n";
   return code;
 };
 
 Blockly.Python["block_dht_read"] = function(block) {
   var dropdown_data = block.getFieldValue("DATA");
+  var variable_dht = Blockly.Python.variableDB_.getName(block.getFieldValue('dht_sensor'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble Python into code variable.
   var code = "";
   if (dropdown_data == "TEMP")
-    code = "dht_sensor.temperature()";
+    code = variable_dht + ".temperature()";
   else 
-    code = "dht_sensor.humidity()";
+    code = variable_dht + ".humidity()";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -343,41 +361,6 @@ Blockly.Python["block_checkkeypad"] = function(block) {
   // TODO: Assemble Python into code variable.
   Blockly.Python.definitions_["import_keypad_keys_pressed"] = "keys_pressed = ''";
   var code ="keypad_homebit.check_keypad()";
-  return [code, Blockly.Python.ORDER_NONE];
-};
-
-Blockly.Blocks["block_touchpad_istouch"] = {
-  init: function() {
-    this.jsonInit({
-      type: "block_touchpad_istouch",
-      message0: "kiểm tra phím %1 được chạm",
-      args0: [
-        {
-          type: "input_value",
-          name: "TEXT"
-        }
-      ],
-      output: "Boolean",
-      colour: 180,
-      tooltip: "",
-      helpUrl: ""
-    });
-  }
-};
-
-Blockly.Python["block_touchpad_istouch"] = function(block) {
-  var value_text = Blockly.Python.valueToCode(
-    block,
-    "TEXT",
-    Blockly.Python.ORDER_ATOMIC
-  );
-  Blockly.Python.definitions_["import_yolobit"] = "from yolobit import *";
-  Blockly.Python.definitions_["import_i2c"] = "from machine import Pin, I2C";
-  Blockly.Python.definitions_["import_mpr121"] = "from keypad121 import MPR121";
-  Blockly.Python.definitions_["import_keypad"] = "keypad_homebit = MPR121(I2C(-1, scl=Pin(22), sda=Pin(21)))";
-  // TODO: Assemble Python into code variable.
-  // TODO: Change ORDER_NONE to the correct strength.
-  var code = "keypad_homebit.is_touched(" + value_text + ")";
   return [code, Blockly.Python.ORDER_NONE];
 };
 
@@ -739,4 +722,118 @@ Blockly.Python['homebit_ultrasonic_checkdistance'] = function(block) {
     code = 'ultrasonic_home_bit.distance_mm()' + value_distance;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Blocks['oled_create'] = {
+  init: function() {
+    this.jsonInit(
+      {
+        "type": "oled_create",
+        "message0": Blockly.Msg.OLED_CREATE_MESSAGE0,
+        "args0": [
+          {
+            "type": "field_variable",
+            "name": "oled_lcd",
+            "variable": Blockly.Msg.OLED_CREATE_MESSAGE1,
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 180,
+        "tooltip": Blockly.Msg.OLED_CREATE_TOOLTIP,
+        "helpUrl": Blockly.Msg.OLED_CREATE_HELPURL
+      }
+    );
+  }
+};
+
+Blockly.Python['oled_create'] = function(block) {
+  var variable_oled_lcd = Blockly.Python.variableDB_.getName(block.getFieldValue('oled_lcd'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
+  Blockly.Python.definitions_['import_i2c'] = 'from machine import Pin, I2C';
+  Blockly.Python.definitions_['import_oled'] = 'from ssd1306 import SSD1306_I2C';
+  // oled = SSD1306_I2C(oled_width, oled_height, i2c)
+  var code = variable_oled_lcd + ' = SSD1306_I2C( 128, 64 , I2C(-1, scl=Pin(22), sda=Pin(21)))\n';
+  return code;
+};
+
+Blockly.Blocks['oled_text'] = {
+  init: function() {
+    this.jsonInit(
+      {
+        "type": "oled_text",
+        "message0": Blockly.Msg.OLED_TEXT_MESSAGE0,
+        "args0": [
+          {
+            "type": "field_variable",
+            "name": "oled_lcd",
+            "variable": Blockly.Msg.OLED_TEXT_MESSAGE1,
+          },
+          {
+            "type": "input_value",
+            "name": "TEXT"
+          },
+          {
+            "type": "input_value",
+            "name": "X"
+          },
+          {
+            "type": "input_value",
+            "name": "Y"
+          },
+          {
+            "type": "input_dummy"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 180,
+        "tooltip": Blockly.Msg.OLED_TEXT_TOOLTIP,
+        "helpUrl": Blockly.Msg.OLED_TEXT_HELPURL
+      }
+    );
+  }
+};
+
+Blockly.Python['oled_text'] = function(block) {
+  var variable_oled_lcd = Blockly.Python.variableDB_.getName(block.getFieldValue('oled_lcd'), Blockly.Variables.NAME_TYPE);
+  var value_text = Blockly.Python.valueToCode(block, 'TEXT', Blockly.Python.ORDER_ATOMIC);
+  var value_x = Blockly.Python.valueToCode(block, 'X', Blockly.Python.ORDER_ATOMIC);
+  var value_y = Blockly.Python.valueToCode(block, 'Y', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  //oled.text('Hello, World 1!', 0, 0, col); oled.show()
+  var code = variable_oled_lcd + '.text(str(' + value_text + '), ' + value_x + ', ' + value_y + ', 1); ' + variable_oled_lcd + '.show()\n';
+  return code;
+};
+
+Blockly.Blocks['oled_fill'] = {
+  init: function() {
+    this.jsonInit(
+      {
+        "type": "oled_fill",
+        "message0": Blockly.Msg.OLED_FILL_MESSAGE0,
+        "args0": [
+          {
+            "type": "field_variable",
+            "name": "oled_lcd",
+            "variable": Blockly.Msg.OLED_FILL_MESSAGE1,
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 180,
+        "tooltip": Blockly.Msg.OLED_FILL_TOOLTIP,
+        "helpUrl": Blockly.Msg.OLED_FILL_HELPURL
+      }
+    );
+  }
+};
+
+Blockly.Python['oled_fill'] = function(block) {
+  var variable_oled_lcd = Blockly.Python.variableDB_.getName(block.getFieldValue('oled_lcd'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  //oled.fill(1); oled.show()
+  var code = variable_oled_lcd + '.fill(0); ' + variable_oled_lcd + '.show()\n';
+  return code;
 };
