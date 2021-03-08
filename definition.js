@@ -344,12 +344,12 @@ Blockly.Python["block_dht_read"] = function(block) {
 Blockly.Blocks["block_checkkeypad"] = {
   init: function() {
     this.jsonInit({
-      type: "block_checkkeypad",
-      message0: "đọc phím vừa được chạm",
-      output: null,
-      colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      "type": "block_checkkeypad",
+      "message0": Blockly.Msg.BLOCK_CHECKKEYPAD_MESSAGE0 = "đọc phím vừa được chạm",
+      "output": null,
+      "colour": 180,
+      "tooltip": Blockly.Msg.BLOCK_CHECKKEYPAD_TOOLTIP,
+      "helpUrl": Blockly.Msg.BLOCK_CHECKKEYPAD_HELPURL
     });
   }
 };
