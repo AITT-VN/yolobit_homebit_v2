@@ -345,7 +345,7 @@ Blockly.Blocks["block_checkkeypad"] = {
   init: function() {
     this.jsonInit({
       "type": "block_checkkeypad",
-      "message0": Blockly.Msg.BLOCK_CHECKKEYPAD_MESSAGE0 = "đọc phím vừa được chạm",
+      "message0": Blockly.Msg.BLOCK_CHECKKEYPAD_MESSAGE0,
       "output": null,
       "colour": 180,
       "tooltip": Blockly.Msg.BLOCK_CHECKKEYPAD_TOOLTIP,
@@ -353,6 +353,7 @@ Blockly.Blocks["block_checkkeypad"] = {
     });
   }
 };
+
 Blockly.Python["block_checkkeypad"] = function(block) {
   Blockly.Python.definitions_["import_yolobit"] = "from yolobit import *";
   Blockly.Python.definitions_["import_i2c"] = "from machine import Pin, I2C";
