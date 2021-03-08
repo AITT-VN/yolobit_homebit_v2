@@ -1,3 +1,57 @@
+Blockly.Msg.BLOCK_SOUND_MESSAGE0 = "phát hiện tiếng động ở cảm biến âm thanh %1"
+Blockly.Msg.BLOCK_SOUND_TOOLTIP = "Đọc giá trị đo được của cảm biến âm thanh"
+Blockly.Msg.BLOCK_SOUND_HELPURL = ""
+
+Blockly.Msg.BLOCK_FLIPPED_MESSAGE0 = "%1 đèn %2"
+Blockly.Msg.BLOCK_FLIPPED_MESSAGE1 = "bật"
+Blockly.Msg.BLOCK_FLIPPED_MESSAGE2 = "tắt"
+Blockly.Msg.BLOCK_FLIPPED_MESSAGE3 = "đổi trạng thái"
+Blockly.Msg.BLOCK_FLIPPED_TOOLTIP = "Bật / tắt / đổi trạng thái đèn LED"
+Blockly.Msg.BLOCK_FLIPPED_HELPURL = ""
+
+Blockly.Msg.BLOCK_ROTARY_MESSAGE0 = "đọc vị trí biến trở xoay %1"
+Blockly.Msg.BLOCK_ROTARY_TOOLTIP = "Đọc giá trị của biến trở xoay, trả về giá trị (0-100)"
+Blockly.Msg.BLOCK_ROTARY_HELPURL = ""
+
+Blockly.Msg.LIGHT_SENSOR_MESSAGE0 = "đọc cảm biến ánh sáng %1"
+Blockly.Msg.LIGHT_SENSOR_TOOLTIP = "Đọc giá trị đo được của cảm biến ánh sáng"
+Blockly.Msg.LIGHT_SENSOR_HELPURL = ""
+
+Blockly.Msg.BLOCK_MOTOR_MESSAGE0 = "%1 quạt %2"
+Blockly.Msg.BLOCK_MOTOR_MESSAGE1 = "bật"
+Blockly.Msg.BLOCK_MOTOR_MESSAGE2 = "tắt"
+Blockly.Msg.BLOCK_MOTOR_TOOLTIP = ""
+Blockly.Msg.BLOCK_MOTOR_HELPURL = ""
+
+Blockly.Msg.DHT_CREATE_MESSAGE0 = "khởi tạo cảm biến %1 %2"
+Blockly.Msg.DHT_CREATE_MESSAGE1 = "nhiệt độ và độ ẩm"
+Blockly.Msg.DHT_CREATE_TOOLTIP = ""
+Blockly.Msg.DHT_CREATE_HELPURL = ""
+
+Blockly.Msg.DHT_MEANSURE_MESSAGE0 = "cập nhật cảm biến %1"
+Blockly.Msg.DHT_MEANSURE_MESSAGE1 = "nhiệt độ và độ ẩm"
+Blockly.Msg.DHT_MEANSURE_TOOLTIP = ""
+Blockly.Msg.DHT_MEANSURE_HELPURL = ""
+
+Blockly.Msg.DHT_READ_MESSAGE0 = "đọc %1 từ cảm biến %2 "
+Blockly.Msg.DHT_READ_MESSAGE1 = "nhiệt độ"
+Blockly.Msg.DHT_READ_MESSAGE2 = "độ ẩm"
+Blockly.Msg.DHT_READ_MESSAGE3 = "nhiệt độ và độ ẩm"
+Blockly.Msg.DHT_READ_TOOLTIP = ""
+Blockly.Msg.DHT_READ_HELPURL = ""
+
+Blockly.Msg.BLOCK_READKEYS_MESSAGE0 = "đọc các phím đã nhập"
+Blockly.Msg.BLOCK_READKEYS_TOOLTIP = ""
+Blockly.Msg.BLOCK_READKEYS_HELPURL = ""
+
+Blockly.Msg.BLOCK_SAVEKEYS_MESSAGE0 = "lưu phím vừa được chạm"
+Blockly.Msg.BLOCK_SAVEKEYS_TOOLTIP = ""
+Blockly.Msg.BLOCK_SAVEKEYS_HELPURL = ""
+
+Blockly.Msg.BLOCK_CLEARKEYS_MESSAGE0 = "xóa các phím đã nhập"
+Blockly.Msg.BLOCK_CLEARKEYS_TOOLTIP = ""
+Blockly.Msg.BLOCK_CLEARKEYS_HELPURL = ""
+
 Blockly.Msg.ULTRASONIC_CREATE_MESSAGE0 = "khởi tạo cảm biến khoảng cách với chân trigger %1 chân echo %2"
 Blockly.Msg.ULTRASONIC_CREATE_TOOLTIP = "Khởi tạo cảm biến khoảng cách với 2 chân cắm Trigger và Echo được chọn"
 Blockly.Msg.ULTRASONIC_CREATE_HELPURL = ""
