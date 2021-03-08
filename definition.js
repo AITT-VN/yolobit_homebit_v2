@@ -2,7 +2,7 @@ Blockly.Blocks["block_sound"] = {
   init: function() {
     this.jsonInit({
       type: "block_sound",
-      message0: "phát hiện tiếng động ở cảm biến âm thanh %1",
+      message0: Blockly.Msg.BLOCK_SOUND_MESSAGE0,
       args0: [
         {
           type: "field_dropdown",
@@ -16,8 +16,8 @@ Blockly.Blocks["block_sound"] = {
       ],
       output: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.BLOCK_SOUND_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_SOUND_HELPURL
     });
   }
 };
@@ -34,15 +34,15 @@ Blockly.Blocks["block_flipped"] = {
   init: function() {
     this.jsonInit({
       type: "block_flipped",
-      message0: "%1 đèn %2",
+      message0: Blockly.Msg.BLOCK_FLIPPED_MESSAGE0,
       args0: [
         {
           type: "field_dropdown",
           name: "action",
           options: [
-            ["bật", "1"],
-            ["tắt", "0"],
-            ["đảo trạng thái", "3"]
+            [Blockly.Msg.BLOCK_FLIPPED_MESSAGE1, "1"],
+            [Blockly.Msg.BLOCK_FLIPPED_MESSAGE2, "0"],
+            [Blockly.Msg.BLOCK_FLIPPED_MESSAGE3, "3"]
           ]
         },
         {
@@ -72,8 +72,8 @@ Blockly.Blocks["block_flipped"] = {
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.BLOCK_FLIPPED_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_FLIPPED_HELPURL
     });
   }
 };
@@ -96,7 +96,7 @@ Blockly.Blocks["block_rotary"] = {
   init: function() {
     this.jsonInit({
       type: "block_rotary",
-      message0: "đọc vị trí biến trở xoay %1",
+      message0: Blockly.Msg.BLOCK_ROTARY_MESSAGE0 ,
       args0: [
         {
           type: "field_dropdown",
@@ -110,8 +110,8 @@ Blockly.Blocks["block_rotary"] = {
       ],
       output: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.BLOCK_ROTARY_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_ROTARY_HELPURL
     });
   }
 };
@@ -129,7 +129,7 @@ Blockly.Blocks["block_light_sensor"] = {
   init: function() {
     this.jsonInit({
       type: "block_light_sensor",
-      message0: "đọc cảm biến ánh sáng %1",
+      message0: Blockly.Msg.LIGHT_SENSOR_MESSAGE0 ,
       args0: [
         {
           type: "field_dropdown",
@@ -143,8 +143,8 @@ Blockly.Blocks["block_light_sensor"] = {
       ],
       output: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.LIGHT_SENSOR_TOOLTIP,
+      helpUrl: Blockly.Msg.LIGHT_SENSOR_HELPURL
     });
   }
 };
@@ -162,14 +162,14 @@ Blockly.Blocks["block_motor"] = {
   init: function() {
     this.jsonInit({
       type: "block_motor",
-      message0: "%1 quạt %2",
+      message0: Blockly.Msg.BLOCK_MOTOR_MESSAGE0,
       args0: [
         {
           type: "field_dropdown",
           name: "action",
           options: [
-            ["bật", "1"],
-            ["tắt", "0"]
+            [Blockly.Msg.BLOCK_MOTOR_MESSAGE1, "1"],
+            [Blockly.Msg.BLOCK_MOTOR_MESSAGE2, "0"]
           ]
         },
         {
@@ -200,8 +200,8 @@ Blockly.Blocks["block_motor"] = {
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.BLOCK_MOTOR_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_MOTOR_HELPURL
     });
   }
 };
@@ -220,12 +220,12 @@ Blockly.Blocks["block_dht_create"] = {
   init: function() {
     this.jsonInit({
       type: "block_dht_create",
-      message0: "khởi tạo cảm biến %1 %2 ",
+      message0: Blockly.Msg.DHT_CREATE_MESSAGE0 ,
       args0: [
         {
           type: "field_variable",
           name: "dht_sensor",
-          variable: "nhiệt độ và độ ẩm"
+          variable: Blockly.Msg.DHT_CREATE_MESSAGE1
         },
         {
           type: "field_dropdown",
@@ -256,8 +256,8 @@ Blockly.Blocks["block_dht_create"] = {
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.DHT_CREATE_TOOLTIP,
+      helpUrl: Blockly.Msg.DHT_CREATE_HELPURL
     });
   }
 };
@@ -265,19 +265,19 @@ Blockly.Blocks["block_dht_create"] = {
 Blockly.Blocks["block_dht_measure"] = {
   init: function() {
     this.jsonInit({
-      message0: "cập nhật cảm biến %1",
+      message0: Blockly.Msg.DHT_MEANSURE_MESSAGE0,
       args0: [
       {
         type: "field_variable",
         name: "dht_sensor",
-        variable: "nhiệt độ và độ ẩm"
+        variable: Blockly.Msg.DHT_MEANSURE_MESSAGE1
       }
       ],
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.DHT_MEANSURE_TOOLTIP,
+      helpUrl: Blockly.Msg.DHT_MEANSURE_HELPURL
     });
   }
 };
@@ -285,26 +285,26 @@ Blockly.Blocks["block_dht_measure"] = {
 Blockly.Blocks["block_dht_read"] = {
   init: function() {
     this.jsonInit({
-      message0: "đọc %1 từ cảm biến %2 ",
+      message0: Blockly.Msg.DHT_READ_MESSAGE0,
       args0: [
         {
           type: "field_dropdown",
           name: "DATA",
           options: [
-            ["nhiệt độ", "TEMP"],
-            ["độ ẩm", "HUMID"]
+            [Blockly.Msg.DHT_READ_MESSAGE1, "TEMP"],
+            [Blockly.Msg.DHT_READ_MESSAGE2, "HUMID"]
           ]
         },
         {
           type: "field_variable",
           name: "dht_sensor",
-          variable: "nhiệt độ và độ ẩm"
+          variable: Blockly.Msg.DHT_READ_MESSAGE3
         }
       ],
       output: null,
       colour: 180,
-      tooltip: "",
-      helpUrl: ""
+      tooltip: Blockly.Msg.DHT_READ_TOOLTIP,
+      helpUrl: Blockly.Msg.DHT_READ_HELPURL
     });
   }
 };
@@ -368,12 +368,12 @@ Blockly.Blocks["block_readkeys"] = {
   init: function() {
     this.jsonInit({
       "type": "block_readkeys",
-      "message0": "đọc các phím đã nhập",
+      "message0": Blockly.Msg.BLOCK_READKEYS_MESSAGE0,
       "inputsInline": true,
       "output": null,
       "colour": 180,
-      "tooltip": "",
-      "helpUrl": ""
+      "tooltip": Blockly.Msg.BLOCK_READKEYS_TOOLTIP,
+      "helpUrl": Blockly.Msg.BLOCK_READKEYS_HELPURL
     });
   }
 };
@@ -393,12 +393,12 @@ Blockly.Blocks["block_savekeys"] = {
   init: function() {
     this.jsonInit({
       "type": "block_clearlistkey",
-      "message0": "lưu phím vừa được chạm",
+      "message0": Blockly.Msg.BLOCK_SAVEKEYS_MESSAGE0,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 180,
-      "tooltip": "",
-      "helpUrl": ""
+      "tooltip": Blockly.Msg.BLOCK_SAVEKEYS_TOOLTIP,
+      "helpUrl": Blockly.Msg.BLOCK_SAVEKEYS_HELPURL
     });
   }
 };
@@ -414,12 +414,12 @@ Blockly.Blocks["block_clearkeys"] = {
   init: function() {
     this.jsonInit({
       "type": "block_clearlistkey",
-      "message0": "xóa các phím đã nhập",
+      "message0": Blockly.Msg.BLOCK_CLEARKEYS_MESSAGE0,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 180,
-      "tooltip": "",
-      "helpUrl": ""
+      "tooltip": Blockly.Msg.BLOCK_CLEARKEYS_TOOLTIP,
+      "helpUrl": Blockly.Msg.BLOCK_CLEARKEYS_HELPURL
     });
   }
 };
