@@ -220,12 +220,12 @@ Blockly.Blocks["block_dht_create"] = {
   init: function() {
     this.jsonInit({
       type: "block_dht_create",
-      message0: Blockly.Msg.DHT_CREATE_MESSAGE0 ,
+      message0: Blockly.Msg.BLOCK_DHT_CREATE_MESSAGE0 ,
       args0: [
         {
           type: "field_variable",
           name: "dht_sensor",
-          variable: Blockly.Msg.DHT_CREATE_MESSAGE1
+          variable: Blockly.Msg.BLOCK_DHT_CREATE_MESSAGE1
         },
         {
           type: "field_dropdown",
@@ -256,8 +256,8 @@ Blockly.Blocks["block_dht_create"] = {
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: Blockly.Msg.DHT_CREATE_TOOLTIP,
-      helpUrl: Blockly.Msg.DHT_CREATE_HELPURL
+      tooltip: Blockly.Msg.BLOCK_DHT_CREATE_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_DHT_CREATE_HELPURL
     });
   }
 };
@@ -265,19 +265,19 @@ Blockly.Blocks["block_dht_create"] = {
 Blockly.Blocks["block_dht_measure"] = {
   init: function() {
     this.jsonInit({
-      message0: Blockly.Msg.DHT_MEANSURE_MESSAGE0,
+      message0: Blockly.Msg.BLOCK_DHT_MEANSURE_MESSAGE0,
       args0: [
       {
         type: "field_variable",
         name: "dht_sensor",
-        variable: Blockly.Msg.DHT_MEANSURE_MESSAGE1
+        variable: Blockly.Msg.BLOCK_DHT_MEANSURE_MESSAGE1
       }
       ],
       previousStatement: null,
       nextStatement: null,
       colour: 180,
-      tooltip: Blockly.Msg.DHT_MEANSURE_TOOLTIP,
-      helpUrl: Blockly.Msg.DHT_MEANSURE_HELPURL
+      tooltip: Blockly.Msg.BLOCK_DHT_MEANSURE_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_DHT_MEANSURE_HELPURL
     });
   }
 };
@@ -285,26 +285,26 @@ Blockly.Blocks["block_dht_measure"] = {
 Blockly.Blocks["block_dht_read"] = {
   init: function() {
     this.jsonInit({
-      message0: Blockly.Msg.DHT_READ_MESSAGE0,
+      message0: Blockly.Msg.BLOCK_DHT_READ_MESSAGE0,
       args0: [
         {
           type: "field_dropdown",
           name: "DATA",
           options: [
-            [Blockly.Msg.DHT_READ_MESSAGE1, "TEMP"],
-            [Blockly.Msg.DHT_READ_MESSAGE2, "HUMID"]
+            [Blockly.Msg.BLOCK_DHT_READ_MESSAGE1, "TEMP"],
+            [Blockly.Msg.BLOCK_DHT_READ_MESSAGE2, "HUMID"]
           ]
         },
         {
           type: "field_variable",
           name: "dht_sensor",
-          variable: Blockly.Msg.DHT_READ_MESSAGE3
+          variable: Blockly.Msg.BLOCK_DHT_READ_MESSAGE3
         }
       ],
       output: null,
       colour: 180,
-      tooltip: Blockly.Msg.DHT_READ_TOOLTIP,
-      helpUrl: Blockly.Msg.DHT_READ_HELPURL
+      tooltip: Blockly.Msg.BLOCK_DHT_READ_TOOLTIP,
+      helpUrl: Blockly.Msg.BLOCK_DHT_READ_HELPURL
     });
   }
 };
