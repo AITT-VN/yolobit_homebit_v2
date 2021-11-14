@@ -64,6 +64,7 @@ Blockly.Blocks["block_flipped"] = {
             ["P13", "pin13"],
             ["P14", "pin14"],
             ["P15", "pin15"],
+            ["P16", "pin16"],
             ["P19", "pin19"],
             ["P20", "pin20"]
           ]
@@ -351,6 +352,9 @@ Blockly.Blocks["block_checkkeypad"] = {
       "tooltip": Blockly.Msg.BLOCK_CHECKKEYPAD_TOOLTIP,
       "helpUrl": Blockly.Msg.BLOCK_CHECKKEYPAD_HELPURL
     });
+  },
+  getDeveloperVars: function() {
+    return ['keypad_homebit', 'keys_pressed'];
   }
 };
 
@@ -376,6 +380,9 @@ Blockly.Blocks["block_readkeys"] = {
       "tooltip": Blockly.Msg.BLOCK_READKEYS_TOOLTIP,
       "helpUrl": Blockly.Msg.BLOCK_READKEYS_HELPURL
     });
+  },
+  getDeveloperVars: function() {
+    return ['keypad_homebit', 'keys_pressed'];
   }
 };
 
@@ -401,6 +408,9 @@ Blockly.Blocks["block_savekeys"] = {
       "tooltip": Blockly.Msg.BLOCK_SAVEKEYS_TOOLTIP,
       "helpUrl": Blockly.Msg.BLOCK_SAVEKEYS_HELPURL
     });
+  },
+  getDeveloperVars: function() {
+    return ['keypad_homebit', 'keys_pressed'];
   }
 };
 
@@ -422,6 +432,9 @@ Blockly.Blocks["block_clearkeys"] = {
       "tooltip": Blockly.Msg.BLOCK_CLEARKEYS_TOOLTIP,
       "helpUrl": Blockly.Msg.BLOCK_CLEARKEYS_HELPURL
     });
+  },
+  getDeveloperVars: function() {
+    return ['keypad_homebit', 'keys_pressed'];
   }
 };
 
@@ -616,6 +629,9 @@ Blockly.Blocks['homebit_ultrasonic_create'] = {
         "helpUrl": Blockly.Msg.ULTRASONIC_CREATE_HELPURL
       }
     );
+  },
+  getDeveloperVars: function() {
+    return ['ultrasonic_home_bit'];
   }
 };
 
@@ -657,6 +673,9 @@ Blockly.Blocks['homebit_ultrasonic_read'] = {
         "helpUrl": Blockly.Msg.ULTRASONIC_READ_HELPURL
       }
     );
+  },
+  getDeveloperVars: function() {
+    return ['ultrasonic_home_bit'];
   }
 };
 
@@ -709,6 +728,9 @@ Blockly.Blocks['homebit_ultrasonic_checkdistance'] = {
         "helpUrl": Blockly.Msg.ULTRASONIC_CHECK_HELPURL
       }
     );
+  },
+  getDeveloperVars: function() {
+    return ['ultrasonic_home_bit'];
   }
 };
 
